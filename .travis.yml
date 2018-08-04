@@ -1,0 +1,13 @@
+language: bash
+
+services:
+  - docker
+
+env:
+  - ADMINER_VER=4.6.3 ADMINER_LANG=en TAGS=4.6,4,latest
+
+script:
+  - make && make test
+
+after_success:
+  - . "${TRAVIS_BUILD_DIR}/release.sh"
